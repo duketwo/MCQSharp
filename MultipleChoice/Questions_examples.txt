@@ -1,0 +1,3 @@
+00000|Question|[positive answer]|wrong answer|wrong answer|[positive answer]
+00001|Question|[positive answer]|wrong answer|wrong answer|[positive answer]
+00002|Question|[positive answer]|wrong answer|wrong answer|[positive answer]
