@@ -103,7 +103,7 @@ namespace MultipleChoice
                         Margin = new Padding(0, 0, 0, 5),
                     };
 
-                    label.Font = new Font("Tahoma", 9, FontStyle.Regular);
+                    label.Font = new Font("Tahoma", 10, FontStyle.Regular);
 
                     label.Click += (s, e) =>
                     {
