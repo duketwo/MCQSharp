@@ -121,6 +121,7 @@ namespace MultipleChoice
             string filePath = "Questions.txt";
             // Load questions from the file
             LoadQuestions(filePath);
+            UpdateLabels();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -148,6 +149,12 @@ namespace MultipleChoice
             UpdateListBox();
         }
 
+        private void UpdateLabels()
+        {
+            labelAnswered.Text = $"Answered: {questions.Count(e => e.IsAnswered)}/{questions.Count}";
+            labelPoints.Text = $"Points: {questions.Sum(e => e.Answers.Count(a => a.IsCorrectAnswer && a.IsSelected))}/{questions.Sum(e => e.Answers.Count(a => a.IsCorrectAnswer))}";
+        }
+
         private void button2_MouseDown(object sender, MouseEventArgs e)
         {
             
@@ -162,6 +169,12 @@ namespace MultipleChoice
                     currentQuestionIndex++;
                     DisplayCurrentQuestion();
                 }
+
+                if (currentQuestionIndex == questions.Count)
+                {
+                    currentQuestion.IsAnswered = true;
+                    DisplayCurrentQuestion();
+                }
             }
 
             if (me.Button == MouseButtons.Right)
@@ -173,15 +186,16 @@ namespace MultipleChoice
                 }
             }
 
-            if (currentQuestionIndex == questions.Count)
-            {
-                currentQuestion.IsAnswered = true;
-                DisplayCurrentQuestion();
-            }
             UpdateListBox();
+            UpdateLabels();
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

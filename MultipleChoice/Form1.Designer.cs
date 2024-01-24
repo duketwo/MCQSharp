@@ -35,6 +35,8 @@
             this.labelIndex = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.labelAnswered = new System.Windows.Forms.Label();
+            this.labelPoints = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -55,6 +57,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Next";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             this.button2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button2_MouseDown);
             // 
             // button3
@@ -72,14 +75,14 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1074, 682);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1074, 685);
             this.flowLayoutPanel1.TabIndex = 3;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // labelIndex
             // 
             this.labelIndex.AutoSize = true;
-            this.labelIndex.Location = new System.Drawing.Point(1110, 9);
+            this.labelIndex.Location = new System.Drawing.Point(1095, 9);
             this.labelIndex.Name = "labelIndex";
             this.labelIndex.Size = new System.Drawing.Size(59, 15);
             this.labelIndex.TabIndex = 4;
@@ -103,11 +106,31 @@
             this.listBox1.Size = new System.Drawing.Size(96, 619);
             this.listBox1.TabIndex = 6;
             // 
+            // labelAnswered
+            // 
+            this.labelAnswered.AutoSize = true;
+            this.labelAnswered.Location = new System.Drawing.Point(1095, 650);
+            this.labelAnswered.Name = "labelAnswered";
+            this.labelAnswered.Size = new System.Drawing.Size(82, 15);
+            this.labelAnswered.TabIndex = 7;
+            this.labelAnswered.Text = "Answered: 0/0";
+            // 
+            // labelPoints
+            // 
+            this.labelPoints.AutoSize = true;
+            this.labelPoints.Location = new System.Drawing.Point(1095, 665);
+            this.labelPoints.Name = "labelPoints";
+            this.labelPoints.Size = new System.Drawing.Size(63, 15);
+            this.labelPoints.TabIndex = 8;
+            this.labelPoints.Text = "Points: 0/0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1203, 682);
+            this.ClientSize = new System.Drawing.Size(1203, 685);
+            this.Controls.Add(this.labelPoints);
+            this.Controls.Add(this.labelAnswered);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelIndex);
@@ -132,5 +155,7 @@
         private Label labelIndex;
         private Label label1;
         private ListBox listBox1;
+        private Label labelAnswered;
+        private Label labelPoints;
     }
 }
