@@ -41,11 +41,20 @@ namespace MultipleChoice
             if (currentQuestionIndex < questions.Count + 1)
             {
                 Question currentQuestion = questions[currentQuestionIndex-1];
-                //lblQuestionNumber.Text = $"Question {currentQuestion.Number}";
-                //lblQuestion.Text = currentQuestion.Text;
+                
 
                 // Clear previous answer controls
                 flowLayoutPanel1.Controls.Clear();
+                
+                // Display the question
+                var lblQuestion = new Label();
+                lblQuestion.Text = currentQuestion.Text;
+                flowLayoutPanel1.Controls.Add(lblQuestion);
+                flowLayoutPanel1.SetFlowBreak(lblQuestion, true);
+                lblQuestion.Margin = new Padding(20, 20, 0,20);
+                //var lblPlaceHolder = new Label();
+                //flowLayoutPanel1.Controls.Add(lblPlaceHolder);
+                //flowLayoutPanel1.SetFlowBreak(lblPlaceHolder, true);
 
                 foreach (Answer answer in currentQuestion.Answers.OrderBy(q => _rnd.Next()).ToList())
                 {
