@@ -73,15 +73,16 @@ namespace MultipleChoice
                 if(!currentQuestion.IsAnswered)
                     answers = answers.OrderBy(a => _rnd.Next()).ToArray();
 
+
                 foreach (Answer answer in answers)
                 {
                     CheckBox checkBox = new CheckBox
                     {
-                        Text = $"{answer.Text}",
+                        //Text = $"{answer.Text}",
                         Tag = answer,
-                        AutoSize = true,
+                        AutoSize = false,
                         TextAlign = ContentAlignment.MiddleLeft,
-                        Margin = new Padding(20, 0, 0, 10),
+                        Margin = new Padding(20, 0, 0, 0),
                         Checked = answer.IsSelected,
                     };
 
@@ -107,8 +108,18 @@ namespace MultipleChoice
 
                     flowLayoutPanel1.Controls.Add(checkBox);
 
+                    Label label = new Label
+                    {
+                        Text = answer.Text,
+                        AutoSize = true,
+                        TextAlign = ContentAlignment.MiddleLeft,
+                        Margin = new Padding(0, 0, 0, 5),
+                    };
+
+                    flowLayoutPanel1.Controls.Add(label);
+
                     // SetFlowBreak to force the control to start on a new line
-                    flowLayoutPanel1.SetFlowBreak(checkBox, true);
+                    flowLayoutPanel1.SetFlowBreak(label, true);
                 }
                 labelIndex.Text = $"Index: {currentQuestionIndex.ToString()}/{questions.Count.ToString()}";
             }
