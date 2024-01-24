@@ -86,17 +86,24 @@ namespace MultipleChoice
                         Checked = answer.IsSelected,
                     };
 
+                    Label label = new Label
+                    {
+                        Text = answer.Text,
+                        AutoSize = true,
+                        TextAlign = ContentAlignment.TopLeft,
+                        Margin = new Padding(0, 0, 0, 5),
+                    };
+
                     if (currentQuestion.IsAnswered)
                     {
-
                         // Handle the Paint event to set the text color based on validity
-                        checkBox.Paint += (sender, e) =>
+                        label.Paint += (sender, e) =>
                         {
-                            CheckBox cb = (CheckBox)sender;
-                            Answer ans = (Answer)cb.Tag;
+                            Label lbl = (Label)sender;
+                            Answer ans = answer;
 
                             // Set text color based on validity (green if valid, else red)
-                            cb.ForeColor = ans.IsCorrectAnswer ? Color.Green : Color.Red;
+                            lbl.ForeColor = ans.IsCorrectAnswer ? Color.Green : Color.Red;
                         };
                     }
 
@@ -108,13 +115,7 @@ namespace MultipleChoice
 
                     flowLayoutPanel1.Controls.Add(checkBox);
 
-                    Label label = new Label
-                    {
-                        Text = answer.Text,
-                        AutoSize = true,
-                        TextAlign = ContentAlignment.TopLeft,
-                        Margin = new Padding(0, 0, 0, 5),
-                    };
+
 
                     flowLayoutPanel1.Controls.Add(label);
 
