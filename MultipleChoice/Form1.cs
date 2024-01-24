@@ -24,6 +24,13 @@ namespace MultipleChoice
                     .Select(line => Question.Parse(line))
                     .ToList();
 
+
+                listBox1.DisplayMember = "DisplayMember";
+                foreach (var question in questions)
+                {
+                    listBox1.Items.Add(question);
+                }
+
                 // randomize the questions
                 questions = questions.OrderBy(q => _rnd.Next()).ToList();
 
@@ -34,6 +41,12 @@ namespace MultipleChoice
                 MessageBox.Show($"Error loading questions: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Close();
             }
+        }
+
+        private void UpdateListBox()
+        {
+            listBox1.DisplayMember = null;
+            listBox1.DisplayMember = "DisplayMember";
         }
 
         private void DisplayCurrentQuestion()
@@ -116,11 +129,6 @@ namespace MultipleChoice
             DisplayCurrentQuestion();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-         
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (currentQuestionIndex > 1)
@@ -128,17 +136,21 @@ namespace MultipleChoice
                 currentQuestionIndex--;
                 DisplayCurrentQuestion();
             }
+            UpdateListBox();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             currentQuestionIndex = 1;
+            listBox1.Items.Clear();
             ReloadQuestions();
             DisplayCurrentQuestion();
+            UpdateListBox();
         }
 
         private void button2_MouseDown(object sender, MouseEventArgs e)
         {
+            
             MouseEventArgs me = (MouseEventArgs)e;
             Question currentQuestion = questions[currentQuestionIndex - 1];
             if (me.Button == MouseButtons.Left)
@@ -166,6 +178,7 @@ namespace MultipleChoice
                 currentQuestion.IsAnswered = true;
                 DisplayCurrentQuestion();
             }
+            UpdateListBox();
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)

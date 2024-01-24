@@ -55,7 +55,6 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Next";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             this.button2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button2_MouseDown);
             // 
             // button3
@@ -101,7 +100,7 @@
             this.listBox1.ItemHeight = 15;
             this.listBox1.Location = new System.Drawing.Point(1095, 27);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(96, 634);
+            this.listBox1.Size = new System.Drawing.Size(96, 619);
             this.listBox1.TabIndex = 6;
             // 
             // Form1

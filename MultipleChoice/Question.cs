@@ -12,6 +12,7 @@ namespace MultipleChoice
         public string Text { get; set; }
         public Answer[] Answers { get; set; }
         public bool IsAnswered { get; set; }
+        public string DisplayMember => !IsAnswered ? $"{Number} -- NA" :  $"{Number} -- {Answers.Count(e => e.IsCorrectAnswer && e.IsSelected)}/{Answers.Count(e => e.IsCorrectAnswer)}";
 
         public static Question Parse(string line)
         {
