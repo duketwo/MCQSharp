@@ -11,11 +11,10 @@ namespace MultipleChoice
         public string Number { get; set; }
         public string Text { get; set; }
         public Answer[] Answers { get; set; }
-        public bool IsCurrentQuestion { get; set; }
 
         public static Question Parse(string line)
         {
-            string[] parts = line.Split('|');
+            string[] parts = line.Split("##", StringSplitOptions.None);
             return new Question
             {
                 Number = parts[0],

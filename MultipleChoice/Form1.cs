@@ -52,9 +52,6 @@ namespace MultipleChoice
                 flowLayoutPanel1.Controls.Add(lblQuestion);
                 flowLayoutPanel1.SetFlowBreak(lblQuestion, true);
                 lblQuestion.Margin = new Padding(20, 20, 0,20);
-                //var lblPlaceHolder = new Label();
-                //flowLayoutPanel1.Controls.Add(lblPlaceHolder);
-                //flowLayoutPanel1.SetFlowBreak(lblPlaceHolder, true);
 
                 foreach (Answer answer in currentQuestion.Answers.OrderBy(q => _rnd.Next()).ToList())
                 {
@@ -67,6 +64,12 @@ namespace MultipleChoice
                         Margin = new Padding(20, 0, 0, 10)
                     };
 
+                    // Add anonymous checkbox checked
+                    checkBox.CheckedChanged += (s, e) =>
+                    {
+                        answer.IsSelected = checkBox.Checked;
+                    };
+
                     flowLayoutPanel1.Controls.Add(checkBox);
 
                     // SetFlowBreak to force the control to start on a new line
@@ -75,6 +78,7 @@ namespace MultipleChoice
                 labelIndex.Text = $"Index: {currentQuestionIndex.ToString()}/{questions.Count.ToString()}";
             }
         }
+        
 
         private void ReloadQuestions()
         {
