@@ -48,16 +48,23 @@ namespace MultipleChoice
 
                 // Display the question
                 var lblQuestion = new Label();
-                lblQuestion.Text = currentQuestion.Text;
+                //lblQuestion.Text = $"{currentQuestion.Number} -- {currentQuestion.Text}";
+                lblQuestion.Text = $"{currentQuestion.Text}";
                 flowLayoutPanel1.Controls.Add(lblQuestion);
                 flowLayoutPanel1.SetFlowBreak(lblQuestion, true);
                 lblQuestion.Margin = new Padding(20, 20, 0, 20);
+                lblQuestion.AutoSize = true;
 
-                foreach (Answer answer in currentQuestion.Answers.OrderBy(q => _rnd.Next()).ToList())
+                var answers = currentQuestion.Answers;
+                
+                if(!currentQuestion.IsAnswered)
+                    answers = answers.OrderBy(a => _rnd.Next()).ToArray();
+
+                foreach (Answer answer in answers)
                 {
                     CheckBox checkBox = new CheckBox
                     {
-                        Text = answer.Text,
+                        Text = $"{answer.Text}",
                         Tag = answer,
                         AutoSize = true,
                         TextAlign = ContentAlignment.MiddleLeft,
