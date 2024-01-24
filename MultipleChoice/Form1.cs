@@ -80,9 +80,9 @@ namespace MultipleChoice
                     {
                         //Text = $"{answer.Text}",
                         Tag = answer,
-                        AutoSize = false,
-                        TextAlign = ContentAlignment.MiddleLeft,
-                        Margin = new Padding(20, 0, 0, 0),
+                        AutoSize = true,
+                        TextAlign = ContentAlignment.TopLeft,
+                        Margin = new Padding(10, 0, 0, 0),
                         Checked = answer.IsSelected,
                     };
 
@@ -112,7 +112,7 @@ namespace MultipleChoice
                     {
                         Text = answer.Text,
                         AutoSize = true,
-                        TextAlign = ContentAlignment.MiddleLeft,
+                        TextAlign = ContentAlignment.TopLeft,
                         Margin = new Padding(0, 0, 0, 5),
                     };
 
