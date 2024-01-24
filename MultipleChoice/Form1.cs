@@ -40,18 +40,18 @@ namespace MultipleChoice
         {
             if (currentQuestionIndex < questions.Count + 1)
             {
-                Question currentQuestion = questions[currentQuestionIndex-1];
-                
+                Question currentQuestion = questions[currentQuestionIndex - 1];
+
 
                 // Clear previous answer controls
                 flowLayoutPanel1.Controls.Clear();
-                
+
                 // Display the question
                 var lblQuestion = new Label();
                 lblQuestion.Text = currentQuestion.Text;
                 flowLayoutPanel1.Controls.Add(lblQuestion);
                 flowLayoutPanel1.SetFlowBreak(lblQuestion, true);
-                lblQuestion.Margin = new Padding(20, 20, 0,20);
+                lblQuestion.Margin = new Padding(20, 20, 0, 20);
 
                 foreach (Answer answer in currentQuestion.Answers.OrderBy(q => _rnd.Next()).ToList())
                 {
@@ -61,8 +61,23 @@ namespace MultipleChoice
                         Tag = answer,
                         AutoSize = true,
                         TextAlign = ContentAlignment.MiddleLeft,
-                        Margin = new Padding(20, 0, 0, 10)
+                        Margin = new Padding(20, 0, 0, 10),
+                        Checked = answer.IsSelected,
                     };
+
+                    if (currentQuestion.IsAnswered)
+                    {
+
+                        // Handle the Paint event to set the text color based on validity
+                        checkBox.Paint += (sender, e) =>
+                        {
+                            CheckBox cb = (CheckBox)sender;
+                            Answer ans = (Answer)cb.Tag;
+
+                            // Set text color based on validity (green if valid, else red)
+                            cb.ForeColor = ans.IsCorrectAnswer ? Color.Green : Color.Red;
+                        };
+                    }
 
                     // Add anonymous checkbox checked
                     checkBox.CheckedChanged += (s, e) =>
@@ -78,7 +93,7 @@ namespace MultipleChoice
                 labelIndex.Text = $"Index: {currentQuestionIndex.ToString()}/{questions.Count.ToString()}";
             }
         }
-        
+
 
         private void ReloadQuestions()
         {
@@ -96,11 +111,7 @@ namespace MultipleChoice
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (currentQuestionIndex < questions.Count)
-            {
-                currentQuestionIndex++;
-                DisplayCurrentQuestion();
-            }
+         
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -117,6 +128,42 @@ namespace MultipleChoice
             currentQuestionIndex = 1;
             ReloadQuestions();
             DisplayCurrentQuestion();
+        }
+
+        private void button2_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            Question currentQuestion = questions[currentQuestionIndex - 1];
+            if (me.Button == MouseButtons.Left)
+            {
+                if (currentQuestionIndex < questions.Count)
+                {
+                    
+                    currentQuestion.IsAnswered = true;
+                    currentQuestionIndex++;
+                    DisplayCurrentQuestion();
+                }
+            }
+
+            if (me.Button == MouseButtons.Right)
+            {
+                if (currentQuestionIndex < questions.Count)
+                {
+                    currentQuestionIndex++;
+                    DisplayCurrentQuestion();
+                }
+            }
+
+            if (currentQuestionIndex == questions.Count)
+            {
+                currentQuestion.IsAnswered = true;
+                DisplayCurrentQuestion();
+            }
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
