@@ -11,6 +11,8 @@ namespace MultipleChoice
         public string Text { get; set; }
         public bool IsCorrectAnswer { get; set; }
 
+        public bool IsSelected { get; set; }
+
         public static Answer Parse(string answerText)
         {
             bool isCorrectAnswer = answerText.StartsWith("[") && answerText.EndsWith("]");

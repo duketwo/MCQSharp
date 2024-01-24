@@ -11,6 +11,7 @@ namespace MultipleChoice
         public string Number { get; set; }
         public string Text { get; set; }
         public Answer[] Answers { get; set; }
+        public bool IsCurrentQuestion { get; set; }
 
         public static Question Parse(string line)
         {
