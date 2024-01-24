@@ -60,6 +60,7 @@ namespace MultipleChoice
                 var lblQuestion = new Label();
                 //lblQuestion.Text = $"{currentQuestion.Number} -- {currentQuestion.Text}";
                 lblQuestion.Text = $"{currentQuestion.Text}";
+                lblQuestion.Font = new Font("Tahoma", 10, FontStyle.Bold);
                 flowLayoutPanel1.Controls.Add(lblQuestion);
                 flowLayoutPanel1.SetFlowBreak(lblQuestion, true);
                 lblQuestion.Margin = new Padding(20, 20, 0, 20);
@@ -89,6 +90,8 @@ namespace MultipleChoice
                         TextAlign = ContentAlignment.TopLeft,
                         Margin = new Padding(0, 0, 0, 5),
                     };
+
+                    label.Font = new Font("Tahoma", 9, FontStyle.Regular);
 
                     label.Click += (s, e) =>
                     {
