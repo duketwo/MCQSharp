@@ -90,6 +90,11 @@ namespace MultipleChoice
                         Margin = new Padding(0, 0, 0, 5),
                     };
 
+                    label.Click += (s, e) =>
+                    {
+                        checkBox.Checked = !checkBox.Checked;
+                    };
+
                     if (currentQuestion.IsAnswered)
                     {
                         // Handle the Paint event to set the text color based on validity
