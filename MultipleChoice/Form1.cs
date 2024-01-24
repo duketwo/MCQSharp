@@ -165,7 +165,7 @@ namespace MultipleChoice
         private void UpdateLabels()
         {
             labelAnswered.Text = $"Answered: {questions.Count(e => e.IsAnswered)}/{questions.Count}";
-            labelPoints.Text = $"Points: {questions.Sum(e => e.Answers.Count(a => a.IsCorrectAnswer && a.IsSelected))}/{questions.Sum(e => e.Answers.Count(a => a.IsCorrectAnswer))}";
+            labelPoints.Text = $"Points: {questions.Sum(e => Math.Max(e.Answers.Count(e => e.IsCorrectAnswer && e.IsSelected) - e.Answers.Count(e => !e.IsCorrectAnswer && e.IsSelected), 0))}/{questions.Sum(e => e.Answers.Count(a => a.IsCorrectAnswer))}";
         }
 
         private void button2_MouseDown(object sender, MouseEventArgs e)
