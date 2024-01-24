@@ -207,5 +207,13 @@ namespace MultipleChoice
         {
 
         }
+        
+        private void listBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            var item = (Question)listBox1.SelectedItem;
+            var index = questions.IndexOf(item);
+            currentQuestionIndex = index + 1;
+            DisplayCurrentQuestion();
+        }
     }
 }
