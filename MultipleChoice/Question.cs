@@ -24,6 +24,9 @@ namespace MultipleChoice
                 Question currentQuestion = null;
                 foreach (string line in lines)
                 {
+                    if(line.Trim() == String.Empty)
+                        continue;
+
                     if (line.StartsWith("----------"))
                     {
                         if (currentQuestion != null)
