@@ -9,6 +9,7 @@ namespace MultipleChoice
         private List<Question> questions;
         private int currentQuestionIndex = 1;
         private static Random _rnd = new Random();
+        private static QuestionManager questionManager = new QuestionManager();
 
         public Form1()
         {
@@ -20,7 +21,9 @@ namespace MultipleChoice
         {
             try
             {
-                questions = Question.ParseFile(filePath);
+                questionManager.LoadQuestions(filePath);
+                questions = questionManager.Questions;
+                //Questions = Question.ParseFile(filePath);
 
                 listBox1.DisplayMember = "DisplayMember";
                 foreach (var question in questions)
@@ -28,17 +31,23 @@ namespace MultipleChoice
                     listBox1.Items.Add(question);
                 }
 
-                // randomize the questions
+                // randomize the Questions
                 if (checkBoxRandomize.Checked)
                 {
                     questions = questions.OrderBy(q => _rnd.Next()).ToList();
                 }
 
-                Debug.WriteLine("Loaded " + questions.Count + " questions");
+                if (checkBoxOrderByHistory.Checked)
+                {
+                    // Order based on success percentage
+                    questions = questions.OrderBy(q => questionManager.QuestionHistories.FirstOrDefault(e => e.QuestionNumber == q.Number)?.GetAnsweredCorrectPercentage() ?? 0).ToList();
+                }
+
+                Debug.WriteLine("Loaded " + questions.Count + " Questions");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading questions: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error loading Questions: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Close();
             }
         }
@@ -138,7 +147,7 @@ namespace MultipleChoice
         {
             // Specify the path to your .txt file
             string filePath = "Questions.txt";
-            // Load questions from the file
+            // Load Questions from the file
             LoadQuestions(filePath);
             UpdateLabels();
         }
@@ -181,9 +190,9 @@ namespace MultipleChoice
             Question currentQuestion = questions[currentQuestionIndex - 1];
             if (me.Button == MouseButtons.Left)
             {
+                questionManager.MarkQuestionAsAnswered(currentQuestion);
                 if (currentQuestionIndex < questions.Count)
                 {
-
                     currentQuestion.IsAnswered = true;
                     currentQuestionIndex++;
                     DisplayCurrentQuestion();
@@ -225,6 +234,22 @@ namespace MultipleChoice
             var index = questions.IndexOf(item);
             currentQuestionIndex = index + 1;
             DisplayCurrentQuestion();
+        }
+
+        private void checkBoxOrderByHistory_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxOrderByHistory.Checked)
+            {
+                checkBoxRandomize.Checked = !checkBoxOrderByHistory.Checked;
+            }
+        }
+
+        private void checkBoxRandomize_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxRandomize.Checked)
+            {
+                checkBoxOrderByHistory.Checked = !checkBoxRandomize.Checked;
+            }
         }
     }
 }

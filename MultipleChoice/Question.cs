@@ -14,6 +14,16 @@ namespace MultipleChoice
         public bool IsAnswered { get; set; }
         public string DisplayMember => !IsAnswered ? $"{Number} -- NA" : $"{Number} -- {Math.Max(Answers.Count(e => e.IsCorrectAnswer && e.IsSelected) - Answers.Count(e => !e.IsCorrectAnswer && e.IsSelected), 0)}/{Answers.Count(e => e.IsCorrectAnswer)}";
 
+        public bool IsAnsweredCorrect()
+        {
+            var totalCorrect = Answers.Count(e => e.IsCorrectAnswer);
+            var currentPointsSelected =
+                Math.Max(
+                    Answers.Count(e => e.IsCorrectAnswer && e.IsSelected) -
+                    Answers.Count(e => !e.IsCorrectAnswer && e.IsSelected), 0);
+            return totalCorrect == currentPointsSelected;
+        }
+
         public static List<Question> ParseFile(string filePath)
         {
             List<Question> questions = new List<Question>();
@@ -24,7 +34,7 @@ namespace MultipleChoice
                 Question currentQuestion = null;
                 foreach (string line in lines)
                 {
-                    if(line.Trim() == String.Empty)
+                    if (line.Trim() == String.Empty)
                         continue;
 
                     if (line.StartsWith("----------"))
@@ -57,7 +67,7 @@ namespace MultipleChoice
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading questions: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error loading Questions: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return questions;

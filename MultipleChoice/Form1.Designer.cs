@@ -38,6 +38,7 @@
             this.labelAnswered = new System.Windows.Forms.Label();
             this.labelPoints = new System.Windows.Forms.Label();
             this.checkBoxRandomize = new System.Windows.Forms.CheckBox();
+            this.checkBoxOrderByHistory = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // button1
@@ -129,20 +130,31 @@
             // checkBoxRandomize
             // 
             this.checkBoxRandomize.AutoSize = true;
-            this.checkBoxRandomize.Checked = true;
-            this.checkBoxRandomize.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxRandomize.Location = new System.Drawing.Point(674, 648);
+            this.checkBoxRandomize.Location = new System.Drawing.Point(674, 640);
             this.checkBoxRandomize.Name = "checkBoxRandomize";
             this.checkBoxRandomize.Size = new System.Drawing.Size(118, 19);
             this.checkBoxRandomize.TabIndex = 9;
             this.checkBoxRandomize.Text = "Randomize Order";
             this.checkBoxRandomize.UseVisualStyleBackColor = true;
+            this.checkBoxRandomize.CheckedChanged += new System.EventHandler(this.checkBoxRandomize_CheckedChanged);
+            // 
+            // checkBoxOrderByHistory
+            // 
+            this.checkBoxOrderByHistory.AutoSize = true;
+            this.checkBoxOrderByHistory.Location = new System.Drawing.Point(674, 660);
+            this.checkBoxOrderByHistory.Name = "checkBoxOrderByHistory";
+            this.checkBoxOrderByHistory.Size = new System.Drawing.Size(150, 19);
+            this.checkBoxOrderByHistory.TabIndex = 10;
+            this.checkBoxOrderByHistory.Text = "Order Based On History";
+            this.checkBoxOrderByHistory.UseVisualStyleBackColor = true;
+            this.checkBoxOrderByHistory.CheckedChanged += new System.EventHandler(this.checkBoxOrderByHistory_CheckedChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1203, 685);
+            this.Controls.Add(this.checkBoxOrderByHistory);
             this.Controls.Add(this.checkBoxRandomize);
             this.Controls.Add(this.labelPoints);
             this.Controls.Add(this.labelAnswered);
@@ -173,5 +185,6 @@
         private Label labelAnswered;
         private Label labelPoints;
         private CheckBox checkBoxRandomize;
+        private CheckBox checkBoxOrderByHistory;
     }
 }
