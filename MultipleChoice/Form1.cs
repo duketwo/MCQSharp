@@ -51,7 +51,7 @@ namespace MultipleChoice
             if (currentQuestionIndex < questions.Count + 1)
             {
                 Question currentQuestion = questions[currentQuestionIndex - 1];
-
+                listBox1.SelectedItem = currentQuestion;
 
                 // Clear previous answer controls
                 flowLayoutPanel1.Controls.Clear();
