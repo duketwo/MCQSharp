@@ -20,11 +20,8 @@ namespace MultipleChoice
         {
             try
             {
-                questions = File.ReadAllLines(filePath)
-                    .Select(line => Question.Parse(line))
-                    .ToList();
-
-
+                questions = Question.ParseFile(filePath);
+                
                 listBox1.DisplayMember = "DisplayMember";
                 foreach (var question in questions)
                 {
@@ -69,10 +66,9 @@ namespace MultipleChoice
                 lblQuestion.AutoSize = true;
 
                 var answers = currentQuestion.Answers;
-                
-                if(!currentQuestion.IsAnswered)
-                    answers = answers.OrderBy(a => _rnd.Next()).ToArray();
 
+                if (!currentQuestion.IsAnswered)
+                    answers = answers.OrderBy(a => _rnd.Next()).ToList();
 
                 foreach (Answer answer in answers)
                 {
@@ -169,14 +165,14 @@ namespace MultipleChoice
 
         private void button2_MouseDown(object sender, MouseEventArgs e)
         {
-            
+
             MouseEventArgs me = (MouseEventArgs)e;
             Question currentQuestion = questions[currentQuestionIndex - 1];
             if (me.Button == MouseButtons.Left)
             {
                 if (currentQuestionIndex < questions.Count)
                 {
-                    
+
                     currentQuestion.IsAnswered = true;
                     currentQuestionIndex++;
                     DisplayCurrentQuestion();

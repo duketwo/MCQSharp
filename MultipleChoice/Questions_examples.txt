@@ -1,4 +1,12 @@
-0001##Question1##[positive answer1]##wrong answer1##wrong answer1##[positive answer1]
-0002##Question2##[positive answer2]##wrong answer2##wrong answer2##[positive answer2]
-0003##Question3##[positive answer3]##wrong answer3##wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3wrong answer3##[positive answer3]
-0004##Question4Question4Question4Question4Question4Question4Question4Question4Question4Question4Question4Question4Question4Question4Question4Question4Question4Question4Question4Question4Question4Question4Question4Question4Question4Question4##[positive answer4]##wrong answer4##wrong answer4##[positive answer4]##[positive answer4]##[positive answer4]##[positive answer4]
+----------0001##Grundsätzlich gilt in PGP
+[Teilnehmer können Owner Trust in andere Teilnehmer wählen.]
+[Teilnehmer können öffentliche Schlüssel signieren.]
+[Die Key Validity eines fremden Schlüssels ist complete, wenn man diesen Schlüssel selbst signiert hat.]
+Es gibt keine Möglichkeit einen Schlüssel zu widerrufen, wenn dieser Schlüssel verloren gegangen ist.
+[Ein Schlüssel kann widerrufen werden, auch wenn der Schlüssel kompromittiert worden ist.]
+----------0002##Revokation
+Im OCSP-Protokoll ist die Antwort des Servers nie signiert.
+Indirekte CRLs enthalten nur Zertifikate, deren Aussteller mit dem Aussteller der CRL übereinstimmt.
+[Ein OCSP Server kann die Revokationsinformationen aus CRLs entnehmen.]
+Zu dem im NotAfter Feld eines Zertifikats angegeben Zeitpunkt findet automatisch eine Revokation statt.
+Eine ∆-CRL hat immer weniger Einträge als ihre Basis-CRL.

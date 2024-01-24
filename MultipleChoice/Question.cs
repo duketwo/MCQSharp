@@ -10,19 +10,55 @@ namespace MultipleChoice
     {
         public string Number { get; set; }
         public string Text { get; set; }
-        public Answer[] Answers { get; set; }
+        public List<Answer> Answers { get; set; }
         public bool IsAnswered { get; set; }
-        public string DisplayMember => !IsAnswered ? $"{Number} -- NA" :  $"{Number} -- {Math.Max(Answers.Count(e => e.IsCorrectAnswer && e.IsSelected) - Answers.Count(e => !e.IsCorrectAnswer && e.IsSelected),0)}/{Answers.Count(e => e.IsCorrectAnswer)}";
+        public string DisplayMember => !IsAnswered ? $"{Number} -- NA" : $"{Number} -- {Math.Max(Answers.Count(e => e.IsCorrectAnswer && e.IsSelected) - Answers.Count(e => !e.IsCorrectAnswer && e.IsSelected), 0)}/{Answers.Count(e => e.IsCorrectAnswer)}";
 
-        public static Question Parse(string line)
+        public static List<Question> ParseFile(string filePath)
         {
-            string[] parts = line.Split("##", StringSplitOptions.None);
-            return new Question
+            List<Question> questions = new List<Question>();
+
+            try
             {
-                Number = parts[0],
-                Text = parts[1],
-                Answers = parts.Skip(2).Select(Answer.Parse).ToArray()
-            };
+                string[] lines = File.ReadAllLines(filePath);
+                Question currentQuestion = null;
+                foreach (string line in lines)
+                {
+                    if (line.StartsWith("----------"))
+                    {
+                        if (currentQuestion != null)
+                        {
+                            questions.Add(currentQuestion);
+                            currentQuestion = null;
+                        }
+
+                        currentQuestion = new Question();
+                        currentQuestion.Answers = new List<Answer>();
+                        var l = line.Replace("----------", "");
+                        var split = l.Split("##");
+                        currentQuestion.Number = split[0].Trim();
+                        currentQuestion.Text = split[1].Trim();
+                    }
+                    else
+                    {
+                        var answer = Answer.Parse(line.Trim());
+                        currentQuestion.Answers.Add(answer);
+                    }
+                }
+
+                if (currentQuestion != null)
+                {
+                    questions.Add(currentQuestion);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading questions: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return questions;
         }
+
     }
 }
