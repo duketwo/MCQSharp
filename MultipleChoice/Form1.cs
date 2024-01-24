@@ -21,7 +21,7 @@ namespace MultipleChoice
             try
             {
                 questions = Question.ParseFile(filePath);
-                
+
                 listBox1.DisplayMember = "DisplayMember";
                 foreach (var question in questions)
                 {
@@ -29,7 +29,10 @@ namespace MultipleChoice
                 }
 
                 // randomize the questions
-                questions = questions.OrderBy(q => _rnd.Next()).ToList();
+                if (checkBoxRandomize.Checked)
+                {
+                    questions = questions.OrderBy(q => _rnd.Next()).ToList();
+                }
 
                 Debug.WriteLine("Loaded " + questions.Count + " questions");
             }
@@ -215,7 +218,7 @@ namespace MultipleChoice
         {
 
         }
-        
+
         private void listBox1_MouseClick(object sender, MouseEventArgs e)
         {
             var item = (Question)listBox1.SelectedItem;

@@ -37,6 +37,7 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.labelAnswered = new System.Windows.Forms.Label();
             this.labelPoints = new System.Windows.Forms.Label();
+            this.checkBoxRandomize = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // button1
@@ -125,11 +126,24 @@
             this.labelPoints.TabIndex = 8;
             this.labelPoints.Text = "Points: 0/0";
             // 
+            // checkBoxRandomize
+            // 
+            this.checkBoxRandomize.AutoSize = true;
+            this.checkBoxRandomize.Checked = true;
+            this.checkBoxRandomize.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxRandomize.Location = new System.Drawing.Point(674, 648);
+            this.checkBoxRandomize.Name = "checkBoxRandomize";
+            this.checkBoxRandomize.Size = new System.Drawing.Size(118, 19);
+            this.checkBoxRandomize.TabIndex = 9;
+            this.checkBoxRandomize.Text = "Randomize Order";
+            this.checkBoxRandomize.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1203, 685);
+            this.Controls.Add(this.checkBoxRandomize);
             this.Controls.Add(this.labelPoints);
             this.Controls.Add(this.labelAnswered);
             this.Controls.Add(this.listBox1);
@@ -158,5 +172,6 @@
         private ListBox listBox1;
         private Label labelAnswered;
         private Label labelPoints;
+        private CheckBox checkBoxRandomize;
     }
 }
