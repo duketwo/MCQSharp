@@ -40,7 +40,7 @@ namespace MultipleChoice
                 if (checkBoxOrderByHistory.Checked)
                 {
                     // Order based on success percentage
-                    questions = questions.OrderBy(q => questionManager.QuestionHistories.FirstOrDefault(e => e.QuestionNumber == q.Number)?.GetAnsweredCorrectPercentage() ?? 0).ToList();
+                    questions = questions.OrderBy(q => questionManager.QuestionHistories.FirstOrDefault(e => e.QuestionNumber == q.Number)?.GetAnsweredCorrectPercentage ?? 0).ToList();
                 }
 
                 Debug.WriteLine("Loaded " + questions.Count + " Questions");
@@ -250,6 +250,11 @@ namespace MultipleChoice
             {
                 checkBoxOrderByHistory.Checked = !checkBoxRandomize.Checked;
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new HistoryFrm(questionManager.QuestionHistories).Show();
         }
     }
 }

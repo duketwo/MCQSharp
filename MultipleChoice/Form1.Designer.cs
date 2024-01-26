@@ -39,6 +39,7 @@
             this.labelPoints = new System.Windows.Forms.Label();
             this.checkBoxRandomize = new System.Windows.Forms.CheckBox();
             this.checkBoxOrderByHistory = new System.Windows.Forms.CheckBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -149,11 +150,22 @@
             this.checkBoxOrderByHistory.UseVisualStyleBackColor = true;
             this.checkBoxOrderByHistory.CheckedChanged += new System.EventHandler(this.checkBoxOrderByHistory_CheckedChanged);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(142, 645);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(88, 23);
+            this.button4.TabIndex = 11;
+            this.button4.Text = "View History";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1203, 685);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.checkBoxOrderByHistory);
             this.Controls.Add(this.checkBoxRandomize);
             this.Controls.Add(this.labelPoints);
@@ -186,5 +198,6 @@
         private Label labelPoints;
         private CheckBox checkBoxRandomize;
         private CheckBox checkBoxOrderByHistory;
+        private Button button4;
     }
 }

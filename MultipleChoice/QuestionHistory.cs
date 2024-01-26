@@ -11,15 +11,17 @@ namespace MultipleChoice
     {
         public string QuestionNumber { get; set; }
         public int TimesAnswered { get; set; }
-        public int TimesAnsweredCorrect { get; set; }
-
-        public double GetAnsweredCorrectPercentage()
+        public int TimesAnsweredCorrectly { get; set; }
+        public double GetAnsweredCorrectPercentage
         {
-            if (TimesAnswered == 0)
+            get
             {
-                return 0.0d;
+                if (TimesAnswered == 0)
+                {
+                    return 0.0d;
+                }
+                return Math.Round((double)TimesAnsweredCorrectly / TimesAnswered * 100, 2);
             }
-            return Math.Round((double)TimesAnsweredCorrect / TimesAnswered * 100, 2);
         }
     }
 }

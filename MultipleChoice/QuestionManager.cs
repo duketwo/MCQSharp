@@ -40,7 +40,7 @@ namespace MultipleChoice
                         {
                             QuestionNumber = question.Number,
                             TimesAnswered = 0,
-                            TimesAnsweredCorrect = 0
+                            TimesAnsweredCorrectly = 0
                         });
                     }
                 }
@@ -98,7 +98,7 @@ namespace MultipleChoice
                 {
                     QuestionNumber = question.Number,
                     TimesAnswered = 0,
-                    TimesAnsweredCorrect = 0,
+                    TimesAnsweredCorrectly = 0,
                 };
 
                 QuestionHistories.Add(questionHistory);
@@ -110,9 +110,9 @@ namespace MultipleChoice
 
                 if (question.IsAnsweredCorrect())
                 {
-                    questionHistory.TimesAnsweredCorrect++;
+                    questionHistory.TimesAnsweredCorrectly++;
                 }
-                Debug.WriteLine($"Question {question.Number} has been answered {questionHistory.TimesAnswered} times. Correct Percentage [{questionHistory.GetAnsweredCorrectPercentage()}]%");
+                Debug.WriteLine($"Question {question.Number} has been answered {questionHistory.TimesAnswered} times. Correct Percentage [{questionHistory.GetAnsweredCorrectPercentage}]%");
             }
             SaveQuestionHistories("questionHistory.dat");
         }
