@@ -40,7 +40,7 @@ namespace MultipleChoice
                 if (checkBoxOrderByHistory.Checked)
                 {
                     // Order based on success percentage
-                    questions = questions.OrderBy(q => questionManager.QuestionHistories.FirstOrDefault(e => e.QuestionNumber == q.Number)?.GetAnsweredCorrectPercentage ?? 0).ToList();
+                    questions = questions.OrderBy(q => questionManager.QuestionHistories.FirstOrDefault(e => e.QuestionNumber == q.Number)?.GetAnsweredCorrectlyPercentage ?? 0).ToList();
                 }
 
                 Debug.WriteLine("Loaded " + questions.Count + " Questions");
@@ -190,7 +190,9 @@ namespace MultipleChoice
             Question currentQuestion = questions[currentQuestionIndex - 1];
             if (me.Button == MouseButtons.Left)
             {
-                questionManager.MarkQuestionAsAnswered(currentQuestion);
+                if (!currentQuestion.IsAnswered)
+                    questionManager.MarkQuestionAsAnswered(currentQuestion);
+                
                 if (currentQuestionIndex < questions.Count)
                 {
                     currentQuestion.IsAnswered = true;

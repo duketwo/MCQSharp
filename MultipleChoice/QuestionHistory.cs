@@ -12,7 +12,7 @@ namespace MultipleChoice
         public string QuestionNumber { get; set; }
         public int TimesAnswered { get; set; }
         public int TimesAnsweredCorrectly { get; set; }
-        public double GetAnsweredCorrectPercentage
+        public double GetAnsweredCorrectlyPercentage
         {
             get
             {

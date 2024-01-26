@@ -112,7 +112,7 @@ namespace MultipleChoice
                 {
                     questionHistory.TimesAnsweredCorrectly++;
                 }
-                Debug.WriteLine($"Question {question.Number} has been answered {questionHistory.TimesAnswered} times. Correct Percentage [{questionHistory.GetAnsweredCorrectPercentage}]%");
+                Debug.WriteLine($"Question {question.Number} has been answered {questionHistory.TimesAnswered} times. Correct Percentage [{questionHistory.GetAnsweredCorrectlyPercentage}]%");
             }
             SaveQuestionHistories("questionHistory.dat");
         }
