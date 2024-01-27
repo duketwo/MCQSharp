@@ -190,31 +190,31 @@ namespace MultipleChoice
             Question currentQuestion = questions[currentQuestionIndex - 1];
             if (me.Button == MouseButtons.Left)
             {
-                if (!currentQuestion.IsAnswered)
-                    questionManager.MarkQuestionAsAnswered(currentQuestion);
-                
+                //if (!currentQuestion.IsAnswered)
+                //    questionManager.MarkQuestionAsAnswered(currentQuestion);
+
                 if (currentQuestionIndex < questions.Count)
                 {
-                    currentQuestion.IsAnswered = true;
+                    //currentQuestion.IsAnswered = true;
                     currentQuestionIndex++;
                     DisplayCurrentQuestion();
                 }
 
                 if (currentQuestionIndex == questions.Count)
                 {
-                    currentQuestion.IsAnswered = true;
+                    //currentQuestion.IsAnswered = true;
                     DisplayCurrentQuestion();
                 }
             }
 
-            if (me.Button == MouseButtons.Right)
-            {
-                if (currentQuestionIndex < questions.Count)
-                {
-                    currentQuestionIndex++;
-                    DisplayCurrentQuestion();
-                }
-            }
+            //if (me.Button == MouseButtons.Right)
+            //{
+            //    if (currentQuestionIndex < questions.Count)
+            //    {
+            //        currentQuestionIndex++;
+            //        DisplayCurrentQuestion();
+            //    }
+            //}
 
             UpdateListBox();
             UpdateLabels();
@@ -257,6 +257,23 @@ namespace MultipleChoice
         private void button4_Click(object sender, EventArgs e)
         {
             new HistoryFrm(questionManager.QuestionHistories).Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Question currentQuestion = questions[currentQuestionIndex - 1];
+
+            if (currentQuestion == null)
+                return;
+
+            if (!currentQuestion.IsAnswered)
+                questionManager.MarkQuestionAsAnswered(currentQuestion);
+
+            currentQuestion.IsAnswered = true;
+            DisplayCurrentQuestion();
+
+            UpdateListBox();
+            UpdateLabels();
         }
     }
 }

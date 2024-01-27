@@ -33,18 +33,18 @@
             this.button3 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.labelIndex = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.labelAnswered = new System.Windows.Forms.Label();
             this.labelPoints = new System.Windows.Forms.Label();
             this.checkBoxRandomize = new System.Windows.Forms.CheckBox();
             this.checkBoxOrderByHistory = new System.Windows.Forms.CheckBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(402, 646);
+            this.button1.Location = new System.Drawing.Point(325, 646);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -54,7 +54,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(484, 646);
+            this.button2.Location = new System.Drawing.Point(488, 646);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
@@ -90,15 +90,6 @@
             this.labelIndex.Size = new System.Drawing.Size(59, 15);
             this.labelIndex.TabIndex = 4;
             this.labelIndex.Text = "Index: 0/0";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(946, 650);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 15);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Next Rightclick (Skip)";
             // 
             // listBox1
             // 
@@ -160,18 +151,28 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(407, 646);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 12;
+            this.button5.Text = "Submit";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1203, 685);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.checkBoxOrderByHistory);
             this.Controls.Add(this.checkBoxRandomize);
             this.Controls.Add(this.labelPoints);
             this.Controls.Add(this.labelAnswered);
             this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.labelIndex);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -192,12 +193,12 @@
         private Button button3;
         private FlowLayoutPanel flowLayoutPanel1;
         private Label labelIndex;
-        private Label label1;
         private ListBox listBox1;
         private Label labelAnswered;
         private Label labelPoints;
         private CheckBox checkBoxRandomize;
         private CheckBox checkBoxOrderByHistory;
         private Button button4;
+        private Button button5;
     }
 }
