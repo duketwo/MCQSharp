@@ -40,8 +40,16 @@ namespace MultipleChoice
                 if (checkBoxOrderByHistory.Checked)
                 {
                     // Order based on success percentage
-                    questions = questions.OrderBy(q => questionManager.QuestionHistories.FirstOrDefault(e => e.QuestionNumber == q.Number)?.GetAnsweredCorrectlyPercentage ?? 0).ToList();
+                    questions = questions.OrderBy(q => questionManager.QuestionHistories.FirstOrDefault(e => e.QuestionNumber == q.Number)?.GetAnsweredCorrectlyPercentage ?? 100).ToList();
+
+                    foreach (var question in questions)
+                    {
+                        Debug.WriteLine($"{question.Number} - {questionManager.QuestionHistories.FirstOrDefault(e => e.QuestionNumber == question.Number)?.GetAnsweredCorrectlyPercentage ?? 100}");
+                    }
                 }
+
+                UpdateListBox();
+                UpdateLabels();
 
                 Debug.WriteLine("Loaded " + questions.Count + " Questions");
             }
