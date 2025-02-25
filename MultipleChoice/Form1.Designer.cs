@@ -28,161 +28,162 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.labelIndex = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.labelAnswered = new System.Windows.Forms.Label();
-            this.labelPoints = new System.Windows.Forms.Label();
-            this.checkBoxRandomize = new System.Windows.Forms.CheckBox();
-            this.checkBoxOrderByHistory = new System.Windows.Forms.CheckBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            labelIndex = new Label();
+            listBox1 = new ListBox();
+            labelAnswered = new Label();
+            labelPoints = new Label();
+            checkBoxRandomize = new CheckBox();
+            checkBoxOrderByHistory = new CheckBox();
+            button4 = new Button();
+            button5 = new Button();
+            SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(325, 646);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Previous";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.Location = new Point(325, 646);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 0;
+            button1.Text = "Previous";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(488, 646);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Next";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            this.button2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button2_MouseDown);
+            button2.Location = new Point(488, 646);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 1;
+            button2.Text = "Next";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            button2.MouseDown += button2_MouseDown;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(569, 646);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Restart";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            button3.Location = new Point(569, 646);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 23);
+            button3.TabIndex = 2;
+            button3.Text = "Restart";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1074, 685);
-            this.flowLayoutPanel1.TabIndex = 3;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
+            flowLayoutPanel1.Dock = DockStyle.Left;
+            flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(1074, 685);
+            flowLayoutPanel1.TabIndex = 3;
+            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
             // labelIndex
             // 
-            this.labelIndex.AutoSize = true;
-            this.labelIndex.Location = new System.Drawing.Point(1095, 9);
-            this.labelIndex.Name = "labelIndex";
-            this.labelIndex.Size = new System.Drawing.Size(59, 15);
-            this.labelIndex.TabIndex = 4;
-            this.labelIndex.Text = "Index: 0/0";
+            labelIndex.AutoSize = true;
+            labelIndex.Location = new Point(1095, 9);
+            labelIndex.Name = "labelIndex";
+            labelIndex.Size = new Size(59, 15);
+            labelIndex.TabIndex = 4;
+            labelIndex.Text = "Index: 0/0";
             // 
             // listBox1
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(1095, 27);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(96, 619);
-            this.listBox1.TabIndex = 6;
-            this.listBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseClick);
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 15;
+            listBox1.Location = new Point(1095, 27);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(96, 619);
+            listBox1.TabIndex = 6;
+            listBox1.MouseClick += listBox1_MouseClick;
             // 
             // labelAnswered
             // 
-            this.labelAnswered.AutoSize = true;
-            this.labelAnswered.Location = new System.Drawing.Point(1095, 650);
-            this.labelAnswered.Name = "labelAnswered";
-            this.labelAnswered.Size = new System.Drawing.Size(82, 15);
-            this.labelAnswered.TabIndex = 7;
-            this.labelAnswered.Text = "Answered: 0/0";
+            labelAnswered.AutoSize = true;
+            labelAnswered.Location = new Point(1095, 650);
+            labelAnswered.Name = "labelAnswered";
+            labelAnswered.Size = new Size(82, 15);
+            labelAnswered.TabIndex = 7;
+            labelAnswered.Text = "Answered: 0/0";
             // 
             // labelPoints
             // 
-            this.labelPoints.AutoSize = true;
-            this.labelPoints.Location = new System.Drawing.Point(1095, 665);
-            this.labelPoints.Name = "labelPoints";
-            this.labelPoints.Size = new System.Drawing.Size(63, 15);
-            this.labelPoints.TabIndex = 8;
-            this.labelPoints.Text = "Points: 0/0";
+            labelPoints.AutoSize = true;
+            labelPoints.Location = new Point(1095, 665);
+            labelPoints.Name = "labelPoints";
+            labelPoints.Size = new Size(63, 15);
+            labelPoints.TabIndex = 8;
+            labelPoints.Text = "Points: 0/0";
             // 
             // checkBoxRandomize
             // 
-            this.checkBoxRandomize.AutoSize = true;
-            this.checkBoxRandomize.Location = new System.Drawing.Point(674, 640);
-            this.checkBoxRandomize.Name = "checkBoxRandomize";
-            this.checkBoxRandomize.Size = new System.Drawing.Size(118, 19);
-            this.checkBoxRandomize.TabIndex = 9;
-            this.checkBoxRandomize.Text = "Randomize Order";
-            this.checkBoxRandomize.UseVisualStyleBackColor = true;
-            this.checkBoxRandomize.CheckedChanged += new System.EventHandler(this.checkBoxRandomize_CheckedChanged);
+            checkBoxRandomize.AutoSize = true;
+            checkBoxRandomize.Location = new Point(674, 640);
+            checkBoxRandomize.Name = "checkBoxRandomize";
+            checkBoxRandomize.Size = new Size(118, 19);
+            checkBoxRandomize.TabIndex = 9;
+            checkBoxRandomize.Text = "Randomize Order";
+            checkBoxRandomize.UseVisualStyleBackColor = true;
+            checkBoxRandomize.CheckedChanged += checkBoxRandomize_CheckedChanged;
             // 
             // checkBoxOrderByHistory
             // 
-            this.checkBoxOrderByHistory.AutoSize = true;
-            this.checkBoxOrderByHistory.Location = new System.Drawing.Point(674, 660);
-            this.checkBoxOrderByHistory.Name = "checkBoxOrderByHistory";
-            this.checkBoxOrderByHistory.Size = new System.Drawing.Size(150, 19);
-            this.checkBoxOrderByHistory.TabIndex = 10;
-            this.checkBoxOrderByHistory.Text = "Order Based On History";
-            this.checkBoxOrderByHistory.UseVisualStyleBackColor = true;
-            this.checkBoxOrderByHistory.CheckedChanged += new System.EventHandler(this.checkBoxOrderByHistory_CheckedChanged);
+            checkBoxOrderByHistory.AutoSize = true;
+            checkBoxOrderByHistory.Location = new Point(674, 660);
+            checkBoxOrderByHistory.Name = "checkBoxOrderByHistory";
+            checkBoxOrderByHistory.Size = new Size(150, 19);
+            checkBoxOrderByHistory.TabIndex = 10;
+            checkBoxOrderByHistory.Text = "Order Based On History";
+            checkBoxOrderByHistory.UseVisualStyleBackColor = true;
+            checkBoxOrderByHistory.CheckedChanged += checkBoxOrderByHistory_CheckedChanged;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(142, 645);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(88, 23);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "View History";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            button4.Location = new Point(142, 645);
+            button4.Name = "button4";
+            button4.Size = new Size(88, 23);
+            button4.TabIndex = 11;
+            button4.Text = "View History";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(407, 646);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 12;
-            this.button5.Text = "Submit";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            button5.Location = new Point(407, 646);
+            button5.Name = "button5";
+            button5.Size = new Size(75, 23);
+            button5.TabIndex = 12;
+            button5.Text = "Submit";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1203, 685);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.checkBoxOrderByHistory);
-            this.Controls.Add(this.checkBoxRandomize);
-            this.Controls.Add(this.labelPoints);
-            this.Controls.Add(this.labelAnswered);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.labelIndex);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Name = "Form1";
-            this.Text = "MultipleChoice";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1203, 685);
+            Controls.Add(button5);
+            Controls.Add(button4);
+            Controls.Add(checkBoxOrderByHistory);
+            Controls.Add(checkBoxRandomize);
+            Controls.Add(labelPoints);
+            Controls.Add(labelAnswered);
+            Controls.Add(listBox1);
+            Controls.Add(labelIndex);
+            Controls.Add(button3);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Controls.Add(flowLayoutPanel1);
+            Name = "Form1";
+            Text = "MultipleChoice";
+            Load += Form1_Load;
+            KeyDown += Form1_KeyDown;
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

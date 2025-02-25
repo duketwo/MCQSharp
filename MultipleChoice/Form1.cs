@@ -14,6 +14,7 @@ namespace MultipleChoice
         public Form1()
         {
             InitializeComponent();
+            this.KeyPreview = true; // Important: Allow form to capture key events
         }
 
 
@@ -282,6 +283,24 @@ namespace MultipleChoice
 
             UpdateListBox();
             UpdateLabels();
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.V)
+            {
+                this.button1_Click(sender, e);
+            }
+
+            if (e.KeyCode == Keys.B)
+            {
+                this.button5_Click(sender, e);
+            }
+
+            if (e.KeyCode == Keys.N)
+            {
+                this.button2_MouseDown(this, new MouseEventArgs(MouseButtons.Left,0,0,0,0));
+            }
         }
     }
 }
